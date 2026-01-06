@@ -24,28 +24,23 @@ export function ContentCalendar() {
 
   return (
     <div className="min-h-screen bg-background p-4 md:p-8">
-      <div className="max-w-[1400px] mx-auto">
-        <div className="flex flex-col lg:flex-row gap-6">
-          {/* Sidebar */}
-          <div className="lg:w-72 shrink-0 space-y-4">
-            {/* Vertical title */}
-            <div className="hidden lg:flex items-center gap-4">
-              <div className="writing-vertical text-sm font-bold tracking-[0.3em] text-muted-foreground">
-                CALENDÁRIO DE CONTEÚDO
-              </div>
-              <div className="flex-1 space-y-4">
-                <CategoryLegend
-                  categories={categories}
-                  selectedColor={selectedColor}
-                  onSelectColor={setSelectedColor}
-                  onUpdateCategory={updateCategory}
-                />
-                <NotesSection notes={notes} onNotesChange={setNotes} />
+      <div className="max-w-[1600px] mx-auto">
+        <div className="flex flex-col lg:flex-row gap-8">
+          {/* Left sidebar with vertical text and legend */}
+          <div className="hidden lg:flex items-stretch gap-3 shrink-0">
+            {/* Vertical text */}
+            <div className="flex items-center">
+              <div 
+                className="text-xs font-bold tracking-[0.25em] text-calendar-purple/80"
+                style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
+              >
+                CONTEÚDO
               </div>
             </div>
-            
-            {/* Mobile legend */}
-            <div className="lg:hidden space-y-4">
+            {/* Vertical purple bar */}
+            <div className="w-1.5 bg-calendar-purple rounded-full" />
+            {/* Legend */}
+            <div className="w-48">
               <CategoryLegend
                 categories={categories}
                 selectedColor={selectedColor}
@@ -72,19 +67,27 @@ export function ContentCalendar() {
               onClearDay={clearDay}
             />
           </div>
+
+          {/* Right sidebar with notes */}
+          <div className="hidden lg:block w-56 shrink-0">
+            <NotesSection notes={notes} onNotesChange={setNotes} />
+          </div>
         </div>
 
-        {/* Mobile notes */}
-        <div className="lg:hidden mt-6">
+        {/* Mobile layout */}
+        <div className="lg:hidden space-y-4 mt-6">
+          <CategoryLegend
+            categories={categories}
+            selectedColor={selectedColor}
+            onSelectColor={setSelectedColor}
+            onUpdateCategory={updateCategory}
+          />
           <NotesSection notes={notes} onNotesChange={setNotes} />
         </div>
 
         {/* Instructions */}
-        <div className="mt-8 text-center text-sm text-muted-foreground">
-          <p>
-            <strong>Dica:</strong> Selecione uma cor na legenda e clique nos dias para pintá-los rapidamente.
-            Clique em um dia sem cor selecionada para adicionar texto.
-          </p>
+        <div className="mt-8 text-center text-xs text-muted-foreground">
+          <p>Selecione uma cor e clique nos dias para pintar • Clique sem cor selecionada para adicionar texto</p>
         </div>
       </div>
     </div>
