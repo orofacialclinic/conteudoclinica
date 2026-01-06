@@ -66,13 +66,13 @@ export function CalendarGrid({
   }, [month, year]);
 
   return (
-    <div className="space-y-2">
+    <div className="space-y-1">
       {/* Weekday headers */}
-      <div className="grid grid-cols-7 gap-2">
+      <div className="grid grid-cols-7 gap-1.5">
         {WEEKDAYS_PT.map((day) => (
           <div
             key={day}
-            className="text-center text-sm font-semibold text-muted-foreground py-2"
+            className="text-center text-xs font-semibold text-muted-foreground py-1.5"
           >
             {day}
           </div>
@@ -80,7 +80,7 @@ export function CalendarGrid({
       </div>
       
       {/* Calendar cells */}
-      <div className="grid grid-cols-7 gap-2">
+      <div className="grid grid-cols-7 gap-1.5">
         {cells.map((cell, index) => (
           <CalendarDay
             key={`${cell.dateKey}-${index}`}

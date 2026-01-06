@@ -23,8 +23,8 @@ export function ContentCalendar() {
   };
 
   return (
-    <div className="min-h-screen bg-background p-4 md:p-8">
-      <div className="max-w-[1600px] mx-auto">
+    <div className="min-h-screen bg-background p-4 md:p-6">
+      <div className="max-w-[1200px] mx-auto">
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Left sidebar with vertical text and legend */}
           <div className="hidden lg:flex items-stretch gap-3 shrink-0">
