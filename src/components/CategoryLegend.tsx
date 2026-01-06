@@ -49,7 +49,7 @@ export function CategoryLegend({
             {/* Colored pill with text */}
             <div
               className={cn(
-                'flex-1 rounded-full px-4 py-1.5 transition-all',
+                'min-w-[140px] rounded-full px-4 py-1.5 transition-all',
                 colors.bg,
                 selectedColor === category.color 
                   ? 'ring-2 ring-primary/50 ring-offset-1 ring-offset-card shadow-md' 
@@ -62,7 +62,7 @@ export function CategoryLegend({
                 onChange={(e) => onUpdateCategory(category.id, { name: e.target.value })}
                 onClick={(e) => e.stopPropagation()}
                 className={cn(
-                  'w-full bg-transparent text-[11px] font-bold text-foreground/90 tracking-wide',
+                  'w-full bg-transparent text-[11px] font-bold text-foreground/90 tracking-wide whitespace-nowrap',
                   'border-none outline-none text-center',
                   'focus:bg-foreground/5 rounded transition-colors duration-200'
                 )}
