@@ -79,7 +79,7 @@ export function CalendarDay({
       <button
         onClick={handleClick}
         className={cn(
-          'relative w-full aspect-[4/3] rounded-lg border border-border/50 p-2',
+          'relative w-full aspect-square rounded-lg border border-border/50 p-1.5',
           'flex flex-col items-start justify-start',
           'transition-all duration-200 hover:shadow-md hover:scale-[1.02]',
           'focus:outline-none focus:ring-2 focus:ring-primary/30',
@@ -89,14 +89,14 @@ export function CalendarDay({
       >
         <span
           className={cn(
-            'text-sm font-medium',
+            'text-xs font-medium',
             isCurrentMonth ? 'text-foreground' : 'text-muted-foreground/50'
           )}
         >
           {day}
         </span>
         {dayData?.text && (
-          <span className="text-[10px] font-medium text-foreground/80 mt-1 leading-tight line-clamp-2">
+          <span className="text-[9px] font-medium text-foreground/80 mt-0.5 leading-tight line-clamp-2">
             {dayData.text}
           </span>
         )}
